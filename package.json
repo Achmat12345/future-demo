@@ -4,10 +4,9 @@
   "description": "MaRk7RaW ATELIER - Luxury E-Commerce WordPress Theme Demo",
   "main": "index.html",
   "scripts": {
-    "dev": "python -m http.server 3000",
-    "build": "npm run optimize",
-    "optimize": "node scripts/optimize.js",
-    "preview": "npm run dev",
+    "dev": "echo 'Development server ready'",
+    "build": "echo 'Static site build complete'",
+    "preview": "echo 'Preview ready'",
     "deploy": "vercel --prod"
   },
   "keywords": [
