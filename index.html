@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MaRk7RaW ATELIER - Luxury E-Commerce Demo</title>
+    <meta name="description" content="Experience the future of luxury fashion with holographic displays, neural animations, and VIP experiences.">
+    
+    <!-- Preload critical resources -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- External Libraries -->
+    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    
+    <!-- Theme Styles -->
+    <link rel="stylesheet" href="./assets/css/demo-styles.css">
+    <link rel="stylesheet" href="./assets/css/neural-animations.css">
+    <link rel="stylesheet" href="./assets/css/vip-system.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="./assets/images/favicon.ico">
+    
+    <!-- Social Meta Tags -->
+    <meta property="og:title" content="MaRk7RaW ATELIER - Luxury E-Commerce Demo">
+    <meta property="og:description" content="Experience the future of luxury fashion with holographic displays, neural animations, and VIP experiences.">
+    <meta property="og:image" content="./assets/images/og-preview.jpg">
+    <meta property="og:url" content="https://mark7raw-demo.vercel.app">
+    <meta name="twitter:card" content="summary_large_image">
+    
+    <!-- Schema Markup -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "MaRk7RaW ATELIER",
+        "description": "Luxury streetwear and elegant atelier fashion",
+        "url": "https://mark7raw-demo.vercel.app",
+        "logo": "./assets/images/logo-main.png",
+        "brand": [
+            {
+                "@type": "Brand",
+                "name": "M7R Raw Streetwear",
+                "description": "Accessible luxury streetwear with bold designs"
+            },
+            {
+                "@type": "Brand", 
+                "name": "7R Elegant Atelier",
+                "description": "Exclusive luxury pieces for discerning connoisseurs"
+            }
+        ]
+    }
+    </script>
+</head>
+<body>
+    <!-- Neural Background Canvas -->
+    <canvas id="neural-background" class="neural-canvas"></canvas>
+    
+    <!-- Holographic Loader -->
+    <div id="holographic-loader" class="holographic-loader">
+        <div class="loader-content">
+            <div class="hologram-ring"></div>
+            <div class="brand-logo">MaRk7RaW</div>
+            <div class="loading-text">Initializing Luxury Experience</div>
+            <div class="progress-bar">
+                <div class="progress-fill"></div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Main Website Content -->
+    <div id="main-content" class="main-content hidden">
+        <!-- Header -->
+        <header class="site-header">
+            <nav class="main-navigation">
+                <div class="nav-container">
+                    <div class="brand-logo-nav">
+                        <h1 class="logo-text">MaRk7RaW</h1>
+                        <span class="logo-tagline">ATELIER</span>
+                    </div>
+                    
+                    <div class="nav-menu">
+                        <a href="#home" class="nav-link active">Home</a>
+                        <a href="#m7r" class="nav-link">M7R Streetwear</a>
+                        <a href="#7r" class="nav-link">7R Atelier</a>
+                        <a href="#vip" class="nav-link">VIP Program</a>
+                        <a href="#experience" class="nav-link">Experience</a>
+                    </div>
+                    
+                    <div class="nav-actions">
+                        <div class="vip-status">
+                            <span class="vip-badge platinum">Platinum Member</span>
+                            <span class="vip-points">12,450 pts</span>
+                        </div>
+                        <div class="cart-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M7 4V2C7 1.45 7.45 1 8 1H16C16.55 1 17 1.45 17 2V4H20C20.55 4 21 4.45 21 5S20.55 6 20 6H19V19C19 20.1 18.1 21 17 21H7C5.9 21 5 20.1 5 19V6H4C3.45 6 3 5.55 3 5S3.45 4 4 4H7ZM9 3V4H15V3H9ZM7 6V19H17V6H7Z"/>
+                            </svg>
+                            <span class="cart-count">3</span>
+                        </div>
+                        <button class="mobile-menu-toggle">☰</button>
+                    </div>
+                </div>
+            </nav>
+        </header>
+        
+        <!-- Hero Section -->
+        <section id="home" class="hero-section">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 class="hero-title">
+                        <span class="title-main">Experience Luxury.</span>
+                        <span class="title-sub">Define Elegance.</span>
+                    </h1>
+                    <p class="hero-description">
+                        Discover the perfect fusion of raw streetwear and refined atelier craftsmanship. 
+                        Where technology meets luxury fashion in an immersive 3D experience.
+                    </p>
+                    <div class="hero-buttons">
+                        <button class="cta-button primary">
+                            Explore Collections
+                            <span class="button-glow"></span>
+                        </button>
+                        <button class="cta-button secondary">
+                            Join VIP Program
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="hero-visual">
+                    <div class="product-showcase-3d">
+                        <model-viewer 
+                            src="./assets/models/hero-hoodie.glb"
+                            alt="MaRk7RaW Signature Hoodie"
+                            camera-controls 
+                            auto-rotate
+                            ar
+                            ar-modes="webxr scene-viewer quick-look"
+                            poster="./assets/images/hero-hoodie-poster.jpg"
+                            class="neural-3d-model">
+                            
+                            <div slot="progress-bar" class="progress-bar">
+                                <div class="update-bar"></div>
+                            </div>
+                            
+                            <button slot="ar-button" class="ar-button">
+                                View in AR
+                            </button>
+                        </model-viewer>
+                        
+                        <div class="holographic-overlay"></div>
+                        <div class="neural-connections">
+                            <div class="connection-node node-1"></div>
+                            <div class="connection-node node-2"></div>
+                            <div class="connection-node node-3"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Scroll Indicator -->
+            <div class="scroll-indicator">
+                <div class="scroll-line"></div>
+                <span class="scroll-text">Scroll to explore</span>
+            </div>
+        </section>
+        
+        <!-- Brand Lines Section -->
+        <section id="brand-lines" class="brand-lines-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Two Distinct Experiences</h2>
+                    <p class="section-subtitle">Choose your expression of luxury</p>
+                </div>
+                
+                <div class="brand-grid">
+                    <!-- M7R Raw Streetwear -->
+                    <div class="brand-card m7r-brand" id="m7r">
+                        <div class="brand-visual">
+                            <div class="brand-3d-preview">
+                                <model-viewer 
+                                    src="./assets/models/m7r-streetwear.glb"
+                                    alt="M7R Raw Streetwear Collection"
+                                    camera-controls
+                                    poster="./assets/images/m7r-poster.jpg"
+                                    class="brand-model">
+                                </model-viewer>
+                            </div>
+                            <div class="brand-overlay">
+                                <div class="brand-logo-large">M7R</div>
+                                <div class="brand-tagline">Raw Streetwear</div>
+                            </div>
+                        </div>
+                        
+                        <div class="brand-info">
+                            <h3 class="brand-title">M7R Raw Streetwear</h3>
+                            <p class="brand-description">
+                                Accessible luxury meets urban edge. Bold designs, premium materials, 
+                                and street-inspired aesthetics for the modern fashion enthusiast.
+                            </p>
+                            <div class="brand-features">
+                                <span class="feature-tag">Bold Designs</span>
+                                <span class="feature-tag">Urban Luxury</span>
+                                <span class="feature-tag">Street Culture</span>
+                            </div>
+                            <button class="brand-cta">
+                                Explore M7R
+                                <span class="cta-arrow">→</span>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- 7R Elegant Atelier -->
+                    <div class="brand-card sevr-brand" id="7r">
+                        <div class="brand-visual">
+                            <div class="brand-3d-preview">
+                                <model-viewer 
+                                    src="./assets/models/7r-atelier.glb"
+                                    alt="7R Elegant Atelier Collection"
+                                    camera-controls
+                                    poster="./assets/images/7r-poster.jpg"
+                                    class="brand-model">
+                                </model-viewer>
+                            </div>
+                            <div class="brand-overlay">
+                                <div class="brand-logo-large">7R</div>
+                                <div class="brand-tagline">Elegant Atelier</div>
+                            </div>
+                        </div>
+                        
+                        <div class="brand-info">
+                            <h3 class="brand-title">7R Elegant Atelier</h3>
+                            <p class="brand-description">
+                                Exclusive luxury pieces crafted for discerning connoisseurs. 
+                                Refined sophistication with impeccable attention to detail.
+                            </p>
+                            <div class="brand-features">
+                                <span class="feature-tag">Exclusive Pieces</span>
+                                <span class="feature-tag">Premium Craftsmanship</span>
+                                <span class="feature-tag">VIP Access</span>
+                            </div>
+                            <button class="brand-cta">
+                                Discover 7R
+                                <span class="cta-arrow">→</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- VIP Experience Section -->
+        <section id="vip" class="vip-section">
+            <div class="container">
+                <div class="vip-header">
+                    <h2 class="section-title">VIP Loyalty Program</h2>
+                    <p class="section-subtitle">Unlock exclusive benefits and early access</p>
+                </div>
+                
+                <div class="vip-tiers">
+                    <div class="tier-card bronze">
+                        <div class="tier-icon">
+                            <div class="tier-badge">Bronze</div>
+                        </div>
+                        <h3 class="tier-name">Bronze Member</h3>
+                        <div class="tier-threshold">1,000+ Points</div>
+                        <ul class="tier-benefits">
+                            <li>Early access to drops (2 hours)</li>
+                            <li>5% point bonus on purchases</li>
+                            <li>Exclusive bronze badge</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="tier-card silver">
+                        <div class="tier-icon">
+                            <div class="tier-badge">Silver</div>
+                        </div>
+                        <h3 class="tier-name">Silver Elite</h3>
+                        <div class="tier-threshold">2,500+ Points</div>
+                        <ul class="tier-benefits">
+                            <li>Early access to drops (6 hours)</li>
+                            <li>10% point bonus on purchases</li>
+                            <li>Silver-exclusive products</li>
+                            <li>Priority customer support</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="tier-card gold">
+                        <div class="tier-icon">
+                            <div class="tier-badge">Gold</div>
+                        </div>
+                        <h3 class="tier-name">Gold Connoisseur</h3>
+                        <div class="tier-threshold">5,000+ Points</div>
+                        <ul class="tier-benefits">
+                            <li>Early access to drops (12 hours)</li>
+                            <li>15% point bonus on purchases</li>
+                            <li>Gold-exclusive limited editions</li>
+                            <li>Personal style consultation</li>
+                            <li>Free shipping on all orders</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="tier-card platinum active">
+                        <div class="tier-icon">
+                            <div class="tier-badge">Platinum</div>
+                        </div>
+                        <h3 class="tier-name">Platinum Curator</h3>
+                        <div class="tier-threshold">10,000+ Points</div>
+                        <ul class="tier-benefits">
+                            <li>Early access to drops (24 hours)</li>
+                            <li>25% point bonus on purchases</li>
+                            <li>Platinum-only atelier pieces</li>
+                            <li>Dedicated concierge service</li>
+                            <li>Exclusive event invitations</li>
+                            <li>Custom piece consultation</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="vip-progress">
+                    <div class="current-status">
+                        <div class="status-info">
+                            <span class="current-tier">Platinum Member</span>
+                            <span class="current-points">12,450 Points</span>
+                        </div>
+                        <div class="progress-visualization">
+                            <div class="progress-nodes">
+                                <div class="node completed">1K</div>
+                                <div class="node completed">2.5K</div>
+                                <div class="node completed">5K</div>
+                                <div class="node completed current">10K</div>
+                            </div>
+                            <div class="progress-line">
+                                <div class="progress-fill" style="width: 100%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Technology Experience Section -->
+        <section id="experience" class="experience-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Immersive Technology</h2>
+                    <p class="section-subtitle">Experience fashion like never before</p>
+                </div>
+                
+                <div class="tech-features">
+                    <div class="tech-card">
+                        <div class="tech-icon">
+                            <div class="holographic-cube"></div>
+                        </div>
+                        <h3 class="tech-title">3D Holographic Display</h3>
+                        <p class="tech-description">
+                            Examine every detail with WebGL-powered 3D models. 
+                            Rotate, zoom, and explore products in stunning detail.
+                        </p>
+                    </div>
+                    
+                    <div class="tech-card">
+                        <div class="tech-icon">
+                            <div class="ar-symbol">AR</div>
+                        </div>
+                        <h3 class="tech-title">AR Try-On</h3>
+                        <p class="tech-description">
+                            See how garments look on you with augmented reality. 
+                            Compatible with iOS and Android devices.
+                        </p>
+                    </div>
+                    
+                    <div class="tech-card">
+                        <div class="tech-icon">
+                            <div class="neural-network-icon">
+                                <div class="neural-node"></div>
+                                <div class="neural-node"></div>
+                                <div class="neural-node"></div>
+                                <div class="neural-connections"></div>
+                            </div>
+                        </div>
+                        <h3 class="tech-title">Neural Animations</h3>
+                        <p class="tech-description">
+                            Dynamic background effects that respond to your interactions. 
+                            Optimized for performance and accessibility.
+                        </p>
+                    </div>
+                    
+                    <div class="tech-card">
+                        <div class="tech-icon">
+                            <div class="audio-wave">
+                                <div class="wave-line"></div>
+                                <div class="wave-line"></div>
+                                <div class="wave-line"></div>
+                            </div>
+                        </div>
+                        <h3 class="tech-title">Spatial Audio</h3>
+                        <p class="tech-description">
+                            Immersive soundscape that enhances the luxury shopping experience. 
+                            Subtle audio cues for interactions and transitions.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Demo Notice -->
+        <section class="demo-notice">
+            <div class="container">
+                <div class="notice-content">
+                    <h3>🔮 This is a Static Demo</h3>
+                    <p>
+                        You're viewing a demonstration of the MaRk7RaW ATELIER WordPress theme. 
+                        The full theme includes complete e-commerce functionality, user accounts, 
+                        and dynamic content management.
+                    </p>
+                    <div class="demo-links">
+                        <a href="https://github.com/Achmat1234/ArmienStore" class="demo-link" target="_blank">
+                            View on GitHub
+                        </a>
+                        <a href="#" class="demo-link secondary" onclick="showFullFeatures()">
+                            View Full Features
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    
+    <!-- Feature Modal -->
+    <div id="features-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h3>MaRk7RaW ATELIER - Complete Features</h3>
+            <div class="features-grid">
+                <div class="feature-category">
+                    <h4>WordPress Theme</h4>
+                    <ul>
+                        <li>Complete WooCommerce integration</li>
+                        <li>WordPress Customizer options</li>
+                        <li>VIP system with user roles</li>
+                        <li>Custom product templates</li>
+                        <li>SEO optimized</li>
+                        <li>Mobile responsive</li>
+                    </ul>
+                </div>
+                <div class="feature-category">
+                    <h4>3D & AR Technology</h4>
+                    <ul>
+                        <li>WebGL 3D product displays</li>
+                        <li>AR try-on functionality</li>
+                        <li>Quality-based model loading</li>
+                        <li>Touch gesture controls</li>
+                        <li>Fallback image galleries</li>
+                        <li>Cross-platform compatibility</li>
+                    </ul>
+                </div>
+                <div class="feature-category">
+                    <h4>VIP Loyalty System</h4>
+                    <ul>
+                        <li>4-tier membership program</li>
+                        <li>Automatic point calculation</li>
+                        <li>Early access controls</li>
+                        <li>Exclusive product access</li>
+                        <li>Email notifications</li>
+                        <li>Admin management panel</li>
+                    </ul>
+                </div>
+                <div class="feature-category">
+                    <h4>Performance & Accessibility</h4>
+                    <ul>
+                        <li>WCAG AA+ compliant</li>
+                        <li>Battery optimization</li>
+                        <li>Progressive enhancement</li>
+                        <li>Lighthouse optimized</li>
+                        <li>Screen reader support</li>
+                        <li>Keyboard navigation</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Custom Cursor -->
+    <div id="custom-cursor" class="custom-cursor">
+        <div class="cursor-dot"></div>
+        <div class="cursor-trail"></div>
+    </div>
+    
+    <!-- Scripts -->
+    <script src="./assets/js/neural-background.js"></script>
+    <script src="./assets/js/demo-interactions.js"></script>
+    <script src="./assets/js/vip-system-demo.js"></script>
+    <script src="./assets/js/main-demo.js"></script>
+    
+    <!-- Performance Monitoring (Development) -->
+    <script>
+        // Simple performance monitoring for demo
+        if (typeof performance !== 'undefined') {
+            window.addEventListener('load', () => {
+                setTimeout(() => {
+                    const perfData = performance.getEntriesByType('navigation')[0];
+                    console.log(`%c🔮 MaRk7RaW Demo Performance:`, 'color: #FFD700; font-weight: bold');
+                    console.log(`Page Load: ${Math.round(perfData.loadEventEnd - perfData.fetchStart)}ms`);
+                    console.log(`First Paint: ${Math.round(performance.getEntriesByType('paint')[0]?.startTime || 0)}ms`);
+                }, 100);
+            });
+        }
+    </script>
+    
+    <!-- Analytics Placeholder -->
+    <script>
+        // Google Analytics or other tracking would go here
+        console.log('🔮 MaRk7RaW ATELIER Demo - Analytics Ready');
+    </script>
+</body>
+</html>

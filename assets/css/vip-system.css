@@ -1,0 +1,541 @@
+/* MaRk7RaW ATELIER - VIP System Styles */
+
+/* VIP Section */
+.vip-section {
+    padding: var(--space-3xl) 0;
+    background: linear-gradient(135deg, 
+        rgba(16, 16, 16, 0.95), 
+        rgba(26, 26, 26, 0.9));
+    position: relative;
+    overflow: hidden;
+}
+
+.vip-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 50% 50%, rgba(255, 215, 0, 0.1), transparent 70%);
+    pointer-events: none;
+}
+
+.vip-header {
+    text-align: center;
+    margin-bottom: var(--space-3xl);
+    position: relative;
+    z-index: 2;
+}
+
+.vip-tiers {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--space-xl);
+    margin-bottom: var(--space-3xl);
+    position: relative;
+    z-index: 2;
+}
+
+/* Tier Cards */
+.tier-card {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(15px);
+    border-radius: 20px;
+    padding: var(--space-xl);
+    text-align: center;
+    position: relative;
+    transition: var(--transition-slow);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    overflow: hidden;
+}
+
+.tier-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: var(--transition-slow);
+    pointer-events: none;
+}
+
+.tier-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+}
+
+.tier-card:hover::before {
+    opacity: 1;
+}
+
+/* Bronze Tier */
+.tier-card.bronze {
+    border-top: 3px solid var(--bronze);
+}
+
+.tier-card.bronze::before {
+    background: radial-gradient(circle, rgba(205, 127, 50, 0.1), transparent 70%);
+}
+
+.tier-card.bronze .tier-badge {
+    background: linear-gradient(135deg, var(--bronze), #A0522D);
+    color: var(--white-pure);
+}
+
+/* Silver Tier */
+.tier-card.silver {
+    border-top: 3px solid var(--silver);
+}
+
+.tier-card.silver::before {
+    background: radial-gradient(circle, rgba(192, 192, 192, 0.15), transparent 70%);
+}
+
+.tier-card.silver .tier-badge {
+    background: linear-gradient(135deg, var(--silver), #A9A9A9);
+    color: var(--black-primary);
+}
+
+/* Gold Tier */
+.tier-card.gold {
+    border-top: 3px solid var(--gold-vip);
+}
+
+.tier-card.gold::before {
+    background: radial-gradient(circle, rgba(255, 215, 0, 0.2), transparent 70%);
+}
+
+.tier-card.gold .tier-badge {
+    background: linear-gradient(135deg, var(--gold-vip), var(--gold-dark));
+    color: var(--black-primary);
+}
+
+/* Platinum Tier */
+.tier-card.platinum {
+    border-top: 3px solid var(--platinum-vip);
+    position: relative;
+}
+
+.tier-card.platinum.active {
+    background: rgba(229, 228, 226, 0.05);
+    border: 2px solid rgba(229, 228, 226, 0.3);
+    box-shadow: 0 0 30px rgba(229, 228, 226, 0.2);
+}
+
+.tier-card.platinum::before {
+    background: radial-gradient(circle, rgba(229, 228, 226, 0.2), transparent 70%);
+}
+
+.tier-card.platinum .tier-badge {
+    background: linear-gradient(135deg, var(--platinum-vip), #F5F5F5);
+    color: var(--black-primary);
+    box-shadow: 0 0 20px rgba(229, 228, 226, 0.3);
+}
+
+.tier-card.platinum.active::after {
+    content: '✓ CURRENT';
+    position: absolute;
+    top: var(--space-md);
+    right: var(--space-md);
+    background: var(--gold-primary);
+    color: var(--black-primary);
+    padding: var(--space-xs) var(--space-sm);
+    border-radius: 15px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+/* Tier Card Elements */
+.tier-icon {
+    margin-bottom: var(--space-lg);
+    position: relative;
+}
+
+.tier-badge {
+    display: inline-block;
+    padding: var(--space-sm) var(--space-lg);
+    border-radius: 30px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: var(--transition-normal);
+}
+
+.tier-card:hover .tier-badge {
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.tier-name {
+    font-family: var(--font-display);
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: var(--space-sm);
+    color: var(--white-pure);
+}
+
+.tier-threshold {
+    font-size: 0.9rem;
+    color: var(--white-soft);
+    opacity: 0.7;
+    margin-bottom: var(--space-lg);
+    font-weight: 600;
+}
+
+.tier-benefits {
+    list-style: none;
+    text-align: left;
+}
+
+.tier-benefits li {
+    padding: var(--space-sm) 0;
+    color: var(--white-soft);
+    font-size: 0.9rem;
+    position: relative;
+    padding-left: var(--space-lg);
+}
+
+.tier-benefits li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--gold-primary);
+    font-weight: 700;
+}
+
+/* VIP Progress */
+.vip-progress {
+    background: rgba(255, 255, 255, 0.02);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    padding: var(--space-xl);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+    z-index: 2;
+}
+
+.current-status {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-xl);
+}
+
+.status-info {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+}
+
+.current-tier {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--platinum-vip);
+}
+
+.current-points {
+    font-size: 1rem;
+    color: var(--gold-primary);
+    font-weight: 600;
+}
+
+.progress-visualization {
+    flex: 1;
+    max-width: 600px;
+}
+
+.progress-nodes {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--space-sm);
+    position: relative;
+    z-index: 2;
+}
+
+.node {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    font-weight: 700;
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--white-soft);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    transition: var(--transition-normal);
+}
+
+.node.completed {
+    background: var(--gold-primary);
+    color: var(--black-primary);
+    border-color: var(--gold-primary);
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
+}
+
+.node.current {
+    background: var(--platinum-vip);
+    color: var(--black-primary);
+    border-color: var(--platinum-vip);
+    box-shadow: 0 0 20px rgba(229, 228, 226, 0.4);
+    animation: currentNodePulse 2s ease-in-out infinite;
+}
+
+@keyframes currentNodePulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+.progress-line {
+    height: 4px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 2px;
+    position: relative;
+    overflow: hidden;
+}
+
+.progress-line .progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--gold-primary), var(--platinum-vip));
+    border-radius: 2px;
+    transition: width 1s ease;
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+}
+
+/* VIP Modal Styles */
+.vip-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    backdrop-filter: blur(10px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+    opacity: 0;
+    visibility: hidden;
+    transition: var(--transition-slow);
+}
+
+.vip-modal.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.vip-modal-content {
+    background: linear-gradient(135deg, rgba(26, 26, 26, 0.95), rgba(0, 0, 0, 0.95));
+    border: 2px solid var(--gold-primary);
+    border-radius: 20px;
+    padding: var(--space-3xl);
+    text-align: center;
+    max-width: 600px;
+    width: 90%;
+    position: relative;
+    animation: modalSlideIn 0.5s ease;
+}
+
+@keyframes modalSlideIn {
+    from {
+        transform: translateY(-50px) scale(0.9);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+    }
+}
+
+.vip-modal-close {
+    position: absolute;
+    top: var(--space-lg);
+    right: var(--space-lg);
+    background: none;
+    border: none;
+    color: var(--white-soft);
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: var(--transition-fast);
+}
+
+.vip-modal-close:hover {
+    color: var(--gold-primary);
+}
+
+.vip-upgrade-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto var(--space-lg);
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--gold-primary), var(--gold-dark));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    color: var(--black-primary);
+    box-shadow: 0 0 30px rgba(255, 215, 0, 0.4);
+    animation: upgradeIconSpin 3s ease-in-out infinite;
+}
+
+@keyframes upgradeIconSpin {
+    0%, 100% { transform: rotate(0deg); }
+    50% { transform: rotate(10deg); }
+}
+
+.vip-modal h3 {
+    font-family: var(--font-display);
+    font-size: 2rem;
+    color: var(--gold-primary);
+    margin-bottom: var(--space-md);
+}
+
+.vip-modal p {
+    color: var(--white-soft);
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: var(--space-lg);
+}
+
+.vip-modal-actions {
+    display: flex;
+    gap: var(--space-lg);
+    justify-content: center;
+}
+
+.vip-modal-button {
+    padding: var(--space-md) var(--space-xl);
+    border: none;
+    border-radius: 50px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition-normal);
+}
+
+.vip-modal-button.primary {
+    background: var(--gold-primary);
+    color: var(--black-primary);
+}
+
+.vip-modal-button.primary:hover {
+    background: var(--gold-dark);
+    transform: translateY(-2px);
+}
+
+.vip-modal-button.secondary {
+    background: transparent;
+    color: var(--white-soft);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.vip-modal-button.secondary:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.5);
+}
+
+/* Responsive VIP Styles */
+@media (max-width: 1024px) {
+    .current-status {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .progress-nodes {
+        margin-top: var(--space-lg);
+    }
+}
+
+@media (max-width: 768px) {
+    .vip-tiers {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: var(--space-lg);
+    }
+    
+    .tier-card {
+        padding: var(--space-lg);
+    }
+    
+    .vip-progress {
+        padding: var(--space-lg);
+    }
+    
+    .progress-nodes {
+        gap: var(--space-sm);
+    }
+    
+    .node {
+        width: 35px;
+        height: 35px;
+        font-size: 0.7rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .vip-tiers {
+        grid-template-columns: 1fr;
+        gap: var(--space-md);
+    }
+    
+    .tier-card {
+        margin: 0 var(--space-sm);
+    }
+    
+    .vip-modal-content {
+        padding: var(--space-xl);
+        margin: var(--space-lg);
+    }
+    
+    .vip-modal-actions {
+        flex-direction: column;
+    }
+    
+    .progress-nodes {
+        flex-wrap: wrap;
+        gap: var(--space-md);
+        justify-content: center;
+    }
+}
+
+/* VIP Animations */
+@keyframes tierGlow {
+    0%, 100% { box-shadow: 0 0 20px rgba(255, 215, 0, 0.2); }
+    50% { box-shadow: 0 0 30px rgba(255, 215, 0, 0.4); }
+}
+
+.tier-card.highlighted {
+    animation: tierGlow 2s ease-in-out infinite;
+}
+
+/* VIP Badge in Header Enhanced */
+.nav-actions .vip-badge.bronze {
+    background: linear-gradient(135deg, var(--bronze), #A0522D);
+    color: var(--white-pure);
+}
+
+.nav-actions .vip-badge.silver {
+    background: linear-gradient(135deg, var(--silver), #A9A9A9);
+    color: var(--black-primary);
+}
+
+.nav-actions .vip-badge.gold {
+    background: linear-gradient(135deg, var(--gold-vip), var(--gold-dark));
+    color: var(--black-primary);
+}
+
+.nav-actions .vip-badge.platinum {
+    animation: platinumShimmer 3s ease-in-out infinite;
+}
+
+@keyframes platinumShimmer {
+    0%, 100% { box-shadow: 0 0 15px rgba(229, 228, 226, 0.3); }
+    50% { box-shadow: 0 0 25px rgba(229, 228, 226, 0.6); }
+}

@@ -1,0 +1,71 @@
+{
+  "name": "mark7raw-atelier-demo",
+  "version": "1.0.0",
+  "description": "MaRk7RaW ATELIER - Luxury E-Commerce WordPress Theme Demo",
+  "main": "index.html",
+  "scripts": {
+    "dev": "python -m http.server 3000",
+    "build": "npm run optimize",
+    "optimize": "node scripts/optimize.js",
+    "preview": "npm run dev",
+    "deploy": "vercel --prod"
+  },
+  "keywords": [
+    "wordpress",
+    "theme",
+    "luxury",
+    "ecommerce",
+    "3d",
+    "holographic",
+    "vip",
+    "neural",
+    "fashion",
+    "streetwear",
+    "atelier"
+  ],
+  "author": "MaRk7RaW ATELIER",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Achmat1234/ArmienStore"
+  },
+  "homepage": "https://mark7raw-demo.vercel.app",
+  "devDependencies": {
+    "html-minifier": "^4.0.0",
+    "postcss": "^8.4.31",
+    "autoprefixer": "^10.4.16",
+    "cssnano": "^6.0.1"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead",
+    "not ie 11"
+  ],
+  "demo": {
+    "title": "MaRk7RaW ATELIER Demo",
+    "description": "Interactive demonstration of the luxury e-commerce WordPress theme",
+    "features": [
+      "3D Holographic Product Displays",
+      "Neural Background Animations", 
+      "VIP Loyalty System",
+      "Dual Brand Identity (M7R/7R)",
+      "Cinematic User Experience",
+      "AR Try-On Capabilities",
+      "Spatial Audio Integration",
+      "Accessibility Compliance"
+    ],
+    "technologies": [
+      "WebGL",
+      "Model-Viewer",
+      "GSAP",
+      "Web Audio API",
+      "CSS Grid/Flexbox",
+      "JavaScript ES6+",
+      "Progressive Web App"
+    ]
+  }
+}
