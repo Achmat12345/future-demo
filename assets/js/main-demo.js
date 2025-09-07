@@ -9,25 +9,47 @@ class MaRk7RaWDemo {
             name: 'Demo User'
         };
         
+        console.log('🔮 MaRk7RaW Demo constructor called');
         this.init();
     }
     
     init() {
-        this.setupLoader();
-        this.setupNavigation();
-        this.setupCustomCursor();
-        this.setupScrollEffects();
-        this.setupModalSystem();
-        this.setupVIPSystem();
-        this.setup3DInteractions();
-        this.setupPerformanceMonitoring();
-        
-        // Initialize when DOM is loaded
-        if (document.readyState === 'loading') {
-            document.addEventListener('DOMContentLoaded', () => this.onDOMReady());
-        } else {
-            this.onDOMReady();
+        console.log('🔮 Initializing demo systems');
+        try {
+            this.setupLoader();
+            this.setupNavigation();
+            this.setupCustomCursor();
+            this.setupScrollEffects();
+            this.setupModalSystem();
+            this.setupVIPSystem();
+            this.setup3DInteractions();
+            this.setupPerformanceMonitoring();
+            
+            // Initialize when DOM is loaded
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', () => this.onDOMReady());
+            } else {
+                setTimeout(() => this.onDOMReady(), 100);
+            }
+        } catch (error) {
+            console.error('Demo initialization error:', error);
+            // Fallback: just show content
+            this.showContentDirectly();
         }
+    }
+    
+    showContentDirectly() {
+        console.log('🔄 Using fallback content display');
+        setTimeout(() => {
+            const loader = document.getElementById('holographic-loader');
+            const mainContent = document.getElementById('main-content');
+            
+            if (loader) loader.style.display = 'none';
+            if (mainContent) {
+                mainContent.classList.remove('hidden');
+                mainContent.style.display = 'block';
+            }
+        }, 500);
     }
     
     onDOMReady() {
@@ -37,23 +59,57 @@ class MaRk7RaWDemo {
         this.updateVIPStatus();
     }
     
+    // Initialize Neural Background
+    initializeNeuralBackground() {
+        try {
+            console.log('🔮 Initializing neural background');
+            // Check if NeuralBackground class exists
+            if (typeof NeuralBackground !== 'undefined') {
+                window.neuralBg = new NeuralBackground();
+                console.log('✅ Neural background initialized');
+            } else {
+                console.warn('⚠️ NeuralBackground class not found, using fallback');
+            }
+        } catch (error) {
+            console.warn('⚠️ Neural background initialization failed:', error);
+        }
+    }
+    
     // Loading System
     startLoadingSequence() {
+        console.log('🔮 Starting loading sequence');
         const loader = document.getElementById('holographic-loader');
         const mainContent = document.getElementById('main-content');
         
-        // Simulate loading time
+        if (!loader) {
+            console.error('Loader element not found!');
+            return;
+        }
+        
+        if (!mainContent) {
+            console.error('Main content element not found!');
+            return;
+        }
+        
+        // Ensure loading is visible
+        loader.style.display = 'flex';
+        loader.style.opacity = '1';
+        
+        // Complete loading after 2 seconds
         setTimeout(() => {
-            if (loader) {
-                loader.style.opacity = '0';
-                setTimeout(() => {
-                    loader.style.display = 'none';
-                    mainContent?.classList.remove('hidden');
-                    this.isLoaded = true;
-                    this.animateHeroSection();
-                }, 500);
-            }
-        }, 3000);
+            console.log('🎯 Completing loading sequence');
+            loader.style.transition = 'opacity 0.5s ease';
+            loader.style.opacity = '0';
+            
+            setTimeout(() => {
+                loader.style.display = 'none';
+                mainContent.classList.remove('hidden');
+                mainContent.style.display = 'block';
+                this.isLoaded = true;
+                console.log('✅ Demo fully loaded');
+                this.animateHeroSection();
+            }, 500);
+        }, 2000);
     }
     
     animateHeroSection() {
